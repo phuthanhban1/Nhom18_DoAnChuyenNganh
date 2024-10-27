@@ -1,11 +1,6 @@
-/**
- * @(#)AdminIndexController.java 2021/09/10.
- * 
- * Copyright(C) 2021 by PHOENIX TEAM.
- * 
- * Last_Update 2021/09/10.
- * Version 1.00.
- */
+
+ @(#)AdminIndexController.java 
+
 package haui.store.controller.admin;
 
 import java.text.SimpleDateFormat;
