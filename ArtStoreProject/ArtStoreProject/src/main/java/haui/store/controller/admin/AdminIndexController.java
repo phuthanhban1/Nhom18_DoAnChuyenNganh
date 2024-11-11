@@ -1,5 +1,5 @@
 
- @(#)AdminIndexController.java 
+ // @(#)AdminIndexController.java 
 
 package haui.store.controller.admin;
 
