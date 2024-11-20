@@ -99,6 +99,7 @@ public class AccountController {
 			model.addAttribute("discount", discount);
 		}
 		return Constants.USER_DISPLAY_ACCOUNT_INVOICE;
+
 	}
 
 	@GetMapping("/account/order/cancel/{id}")
@@ -139,4 +140,5 @@ public class AccountController {
 
 		return Constants.USER_DISPLAY_ACCOUNT_ORDER_SEARCH;
 	}
+	
 }

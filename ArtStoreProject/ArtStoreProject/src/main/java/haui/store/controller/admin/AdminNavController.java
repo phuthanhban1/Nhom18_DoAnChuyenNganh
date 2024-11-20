@@ -31,4 +31,5 @@ public class AdminNavController {
 		model.addAttribute("enableBtnUpdate", true);
 		return Constants.USER_DISPLAY_ADMIN_NAV_FORM;
 	}
+	
 }
