@@ -66,4 +66,6 @@ public interface OrderService {
 	public void updateOrderStatus(String orderId, String status);
 
 	long countOrderOnMonth(int month, int year);
+
+	String getEmailByOrder(String code);
 }

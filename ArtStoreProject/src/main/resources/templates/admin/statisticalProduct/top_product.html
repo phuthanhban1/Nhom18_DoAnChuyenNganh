@@ -42,53 +42,60 @@
 				</ol>
 			</div>
 
-			<div class="page-content">
-				<!-- Panel Basic -->
-				<div class="panel">
-					<div class="panel-body">
-						<table
-							class="table table-hover dataTable table-striped w-full dt-responsive nowrap"
-							datatable="ng" dt-options="vm.dtOptions"
-							dt-instance="vm.dtInstance" dt-column-defs="vm.dtColumnDefs">
-							<thead>
-								<tr>
-									<th>Mã sản phẩm</th>
-									<th>Tên sản phẩm</th>
-									<th>Giá sản phẩm</th>
-									<th>Số lượng</th>
-									<th>Đã bán</th>
-								</tr>
-							</thead>
-							<tfoot>
-								<tr>
-									<th>Mã sản phẩm</th>
-									<th>Tên sản phẩm</th>
-									<th>Giá sản phẩm</th>
-									<th>Số lượng</th>
-									<th>Đã bán</th>
-								</tr>
-							</tfoot>
-							<tbody>
-								<tr ng-repeat="item in items">
-									<td>{{item.code}}</td>
-									<td>{{item.name}}</td>
-									<td>{{item.price | currency : '' : 0}}</td>
-									<td>{{item.quantity}}</td>
-									<td>{{item.selled}}</td>								
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<!-- End Panel Basic -->
-			</div>
+<!--			<div class="page-content">-->
+<!--				&lt;!&ndash; Panel Basic &ndash;&gt;-->
+<!--				<div class="panel">-->
+<!--					<div class="panel-body">-->
+<!--						<table-->
+<!--							class="table table-hover dataTable table-striped w-full dt-responsive nowrap"-->
+<!--							datatable="ng" dt-options="vm.dtOptions"-->
+<!--							dt-instance="vm.dtInstance" dt-column-defs="vm.dtColumnDefs">-->
+<!--							<thead>-->
+<!--								<tr>-->
+<!--									<th>Mã sản phẩm</th>-->
+<!--									<th>Tên sản phẩm</th>-->
+<!--									<th>Giá sản phẩm</th>-->
+<!--									<th>Số lượng</th>-->
+<!--									<th>Đã bán</th>-->
+<!--								</tr>-->
+<!--							</thead>-->
+<!--							<tfoot>-->
+<!--								<tr>-->
+<!--									<th>Mã sản phẩm</th>-->
+<!--									<th>Tên sản phẩm</th>-->
+<!--									<th>Giá sản phẩm</th>-->
+<!--									<th>Số lượng</th>-->
+<!--									<th>Đã bán</th>-->
+<!--								</tr>-->
+<!--							</tfoot>-->
+<!--							<tbody>-->
+<!--								<tr ng-repeat="item in items">-->
+<!--									<td>{{item.code}}</td>-->
+<!--									<td>{{item.name}}</td>-->
+<!--									<td>{{item.price | currency : '' : 0}}</td>-->
+<!--									<td>{{item.quantity}}</td>-->
+<!--									<td>{{item.selled}}</td>								-->
+<!--								</tr>-->
+<!--							</tbody>-->
+<!--						</table>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				&lt;!&ndash; End Panel Basic &ndash;&gt;-->
+<!--			</div>-->
+<!--		</div>-->
+			<div id="barChart"></div>
+
+
+			<!-- End Bar Chart -->
+
 		</div>
 
 	</main>
 </body>
 <th:block id="javascriptResource">
-	<script
-		src="/assets/admin/base/assets/examples/js/tables/datatable.min599c.js?v4.0.2"></script>
-	<script src="/assets/admin/angular/statisticalProduct/statistical-product-day-ctrl.js"></script>
+	<script src="/assets/json/apexcharts.min.js"></script>
+	<script src="/assets/admin/base/assets/examples/js/tables/datatable.min599c.js?v4.0.2"></script>
+<!--	<script src="/assets/admin/angular/statisticalProduct/statistical-product-day-ctrl.js"></script>-->
+	<script src="/assets/admin/angular/statisticalProduct/statistical-product-day.js"></script>
 </th:block>
 </html>

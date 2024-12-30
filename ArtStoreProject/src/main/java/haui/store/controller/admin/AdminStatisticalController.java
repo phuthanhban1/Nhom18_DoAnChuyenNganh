@@ -18,6 +18,11 @@ public class AdminStatisticalController {
 	public String warehouse(Model model) {
 		return Constants.USER_DISPLAY_ADMIN_STATISTICAL_WAREHOUSE_PRODUCT;
 	}
+
+	@GetMapping("/admin/statistical/product/banCham")
+	public String banCham(Model model) {
+		return "admin/statisticalProduct/product_ban_cham";
+	}
 	
 	@GetMapping("/admin/statistical/revenue")
 	public String revenue(Model model) {

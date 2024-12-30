@@ -66,4 +66,6 @@ public class OrderRestController {
 	public void delete(@PathVariable("id") String id) {
 		orderService.deleteOrder(id);
 	}
+
+
 }

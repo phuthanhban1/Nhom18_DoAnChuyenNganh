@@ -55,4 +55,6 @@ public interface ProductDao extends JpaRepository<Product, Integer>{
 
 	@Query(value="SELECT * FROM ProductS WHERE NOT EXISTS (SELECT * FROM ORDERS WHERE Products.Id = ORDERS.Product_Id) AND ProductS.DeleteDay is NULL", nativeQuery = true)
 	List<Product> listStatisticalProductWarehouse();
+
+
 }

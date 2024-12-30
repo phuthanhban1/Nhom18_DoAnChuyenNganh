@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import haui.store.service.MailerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -36,6 +37,9 @@ public class OrderServiceImpl implements OrderService{
 	
 	@Autowired
 	DiscountDao discountDao;
+
+	@Autowired
+	MailerServiceImpl mailerService;
 
 	@Override
 	public List<Order> getOrderByName(String code) {
@@ -149,9 +153,17 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public void approveOrder(String id) {
 		List<Order> listOrder = orderDao.getOrderByName(id);
+		String email = orderDao.getEmailByOrderId(id);
 		for (Order list : listOrder) {
 			list.setStatus("1");
 			orderDao.save(list);
+
+			mailerService.queue(email, "Thông Báo Fahasa.com",
+					"Kính chào quý khách " +",<br>"
+							+ "Đơn hàng mã "+ id + " được vận chuyển, xin "
+							+ "quý khách chú ý thời gian nhận hàng trong 3 đến 5 ngày tiếp theo.<br>"
+							+ "<br><br>"
+							+ "Trân trọng,<br>");
 		}
 	}
 
@@ -191,10 +203,17 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public void shippedOrder(String id) {
 		List<Order> listOrder = orderDao.getOrderByName(id);
+		String email = orderDao.getEmailByOrderId(id);
 		for (Order list : listOrder) {
 			list.setStatus("2");
 			orderDao.save(list);
 		}
+		mailerService.queue(email, "Thông Báo Fahasa.com",
+				"Kính chào quý khách " +",<br>"
+						+ "Đơn hàng mã "+ id
+						+ " đã được giao, nếu quý khách chưa nhận hàng, xin vui lòng liên hệ với chúng tôi.<br>"
+						+ "<br><br>"
+						+ "Trân trọng,<br>");
 	}
 
 	@Override
@@ -445,6 +464,11 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public long countOrderOnMonth(int month, int year) {
 		return orderDao.countOrderByMonthAndYear(month, year);
+	}
+
+	@Override
+	public String getEmailByOrder(String code) {
+		return orderDao.getEmailByOrderId(code);
 	}
 
 

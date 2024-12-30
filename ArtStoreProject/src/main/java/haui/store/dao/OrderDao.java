@@ -99,4 +99,8 @@ public interface OrderDao extends JpaRepository<Order, Integer>{
 	// get order by month
 	@Query("SELECT COUNT(o) FROM Order o WHERE o.status = '2' And MONTH(o.date) = ?1 AND YEAR(o.date) = ?2")
 	long countOrderByMonthAndYear(int month, int year);
+
+	@Query("SELECT u.email FROM Order o JOIN o.address a JOIN a.user u WHERE o.code = ?1")
+	String getEmailByOrderId(String code);
+
 }
